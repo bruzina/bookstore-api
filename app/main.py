@@ -34,7 +34,7 @@ async def book(
             author=author,
             limit=limit,
         )
-        return JSONResponse(result)
+        return result
     except Exception as e:
         return JSONResponse({"message": str(e)}, status_code=500)
 
