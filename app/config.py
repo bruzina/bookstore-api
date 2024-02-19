@@ -9,7 +9,6 @@ class Settings(BaseSettings):
     port = os.getenv("POSTGRES_PORT", 5432)
     user = os.getenv("POSTGRES_USER", "postgres")
     password = os.getenv("POSTGRES_PASSWORD", "default")
-    db_schema = os.getenv("POSTGRES_SCHEMA", "bookstore")
 
 
 settings = Settings()
