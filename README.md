@@ -16,3 +16,17 @@ for easier local development as a containerized application.</em>
 without k8s installed
 
 Good luck and have fun!
+
+## Deployment
+
+Build `Bookstore API` Docker image:
+
+```shell
+sudo docker build . -t bookstore-api
+```
+
+Run `Bookstore API` single container:
+
+```shell
+sudo docker run bookstore-api
+```
