@@ -36,7 +36,12 @@ sudo docker run bookstore-api
 ### All Services
 
 ```shell
+export POSTGRES_DB=bookstore
+export POSTGRES_USER=postgres-user
+export POSTGRES_PASSWORD=postgres-password
 sudo docker compose up --build
+# OR load env vars from .env file
+sudo docker compose --env-file .envrc up --build
 ```
 
 ### Local Test
@@ -46,3 +51,4 @@ Try:
 - [API](http://127.0.0.1:8000/)
 - [API DB Info](http://127.0.0.1:8000/db_info/)
 - [API Book Endpoint](http://127.0.0.1:8000/book/)
+- [API Book Endpoint - Filtering Example](http://127.0.0.1:8000/book/?name=Truckers)
