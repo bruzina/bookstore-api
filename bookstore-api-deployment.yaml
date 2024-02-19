@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bookstore-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: bookstore-api
+  template:
+    metadata:
+      labels:
+        app: bookstore-api
+    spec:
+      containers:
+      - name: bookstore-api
+        image: my-registry/bookstore-api:tag
+        ports:
+          - containerPort: 8000
+        env:
+          - name: POSTGRES_DB
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: POSTGRES_DB
+          - name: POSTGRES_HOST
+            value: postgres
+          - name: POSTGRES_PORT
+            value: "5432"
+          - name: POSTGRES_USER
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: POSTGRES_USER
+          - name: POSTGRES_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: db-secrets
+                key: POSTGRES_PASSWORD

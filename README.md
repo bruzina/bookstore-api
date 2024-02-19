@@ -52,3 +52,25 @@ Try:
 - [API DB Info](http://127.0.0.1:8000/db_info/)
 - [API Book Endpoint](http://127.0.0.1:8000/book/)
 - [API Book Endpoint - Filtering Example](http://127.0.0.1:8000/book/?name=Truckers)
+
+## Kubernetes Deploy
+
+Create encoded secrets:
+
+```shell
+echo -n "username" | base64
+echo -n "password" | base64
+echo -n "database" | base64
+```
+
+Put them to [`db-secrets.yaml`](db-secrets.yaml) and run:
+
+```shell
+kubectl apply -f db-secrets.yaml
+
+kubectl apply -f bookstore-api-deployment.yaml
+kubectl apply -f postgres-deployment.yaml
+kubectl apply -f bookstore-api-service.yaml
+kubectl apply -f postgres-service.yaml
+kubectl apply -f bookstore-api-ingress.yaml
+```
