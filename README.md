@@ -17,7 +17,9 @@ without k8s installed
 
 Good luck and have fun!
 
-## Deployment
+## Local Usage
+
+### Single Bookstore API Service
 
 Build `Bookstore API` Docker image:
 
@@ -30,3 +32,17 @@ Run `Bookstore API` single container:
 ```shell
 sudo docker run bookstore-api
 ```
+
+### All Services
+
+```shell
+sudo docker compose up --build
+```
+
+### Local Test
+
+Try:
+
+- [API](http://127.0.0.1:8000/)
+- [API DB Info](http://127.0.0.1:8000/db_info/)
+- [API Book Endpoint](http://127.0.0.1:8000/book/)

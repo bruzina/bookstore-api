@@ -26,7 +26,7 @@ async def book(
         )
         result = query_db(
             conn,
-            settings.db_schema,
+            settings.database,
             "book",
             ("name", "author", "year"),
             name=name,
